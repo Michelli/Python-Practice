@@ -1,5 +1,4 @@
 import random
-import re
 
 player_one = str(input("Rock, paper, or scissors? ")).lower()
 
@@ -7,7 +6,7 @@ def game(one):
     hands = ["rock", "paper", "scissors"]
     two = hands[random.randint(0,2)]
 
-    if re.match(r"^(?:rock|paper|scissors)$", one):
+    if one in hands:
         print(f"You chose {one}.\nI picked {two}.\n")
 
         if one == two:
