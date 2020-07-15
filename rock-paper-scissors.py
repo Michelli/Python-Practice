@@ -1,9 +1,18 @@
 import random
 
-player_one = str(input("Rock, paper, or scissors? ")).lower()
+hands = ["rock", "paper", "scissors"]
+
+def player_one():
+    one = "Spock"
+
+    while one not in hands:
+        one = str(input("Rock, paper, or scissors? ")).lower()
+        if one not in hands:
+            print("That's not a valid option.\n")
+        else:
+            return one
 
 def game(one):
-    hands = ["rock", "paper", "scissors"]
     two = hands[random.randint(0,2)]
 
     if one in hands:
@@ -16,7 +25,4 @@ def game(one):
         else:
             print("You lose!\n")
         
-    else:
-        print("That's not a valid option.\n")
-
-game(player_one)
+game(player_one())
