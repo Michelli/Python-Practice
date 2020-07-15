@@ -9,8 +9,8 @@ def player_one():
         one = str(input("Rock, paper, or scissors? ")).lower()
         if one not in hands:
             print("That's not a valid option.\n")
-        else:
-            return one
+    
+    return one
 
 def game(one):
     two = hands[random.randint(0,2)]
