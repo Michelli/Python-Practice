@@ -2,6 +2,9 @@ import random
 
 hands = ["rock", "paper", "scissors"]
 play_game = True
+games_played = 0
+score_one = 0
+score_two = 0
 
 def player_one():
     # Lizard poisons Spock
@@ -26,11 +29,11 @@ def game(one):
 
     # The actual game logic
     if one == two:
-        print("It's a tie!\n")
+        return "tie"
     elif (one == "rock" and two == "scissors") or (one == "paper" and two == "rock") or (one == "scissors" and two == "paper"):
-        print("You win!\n")
+        return "win"
     else:
-        print("You lose!\n")
+        return "loss"
 
 def continue_playing():
     continue_game = "unknown"
@@ -50,11 +53,31 @@ def continue_playing():
         return False
         
 while play_game:
+    # Update number of games played
+    games_played += 1
+
     # Prompt user for hand
     one = player_one()
 
     # Play game
-    game(one)
+    result = game(one)
+
+    if result == "win":
+        print("You win!\n")
+        score_one += 1
+    elif result == "loss":
+        print("You lose!\n")
+        score_two += 1
+    else:
+        print("It's a tie!\n")
 
     # Ask if player wants to continue
     play_game = continue_playing()
+
+    if play_game == False:
+        if games_played == 1:
+            print(f"We have played just {games_played} game.\n")
+        else:
+            print(f"We have played {games_played} games.\n")
+
+        print(f"Your score is: {score_one}\nMy score is: {score_two}\n")
