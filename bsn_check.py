@@ -16,7 +16,7 @@ def validate_user_input():
     return input_number
 
 def elfproef(bsn):
-    # Works by calculated a weighted average that is divisable by 11
+    # Works by calculated a weighted average that is divisible by 11
 
     running_count = 0
 
